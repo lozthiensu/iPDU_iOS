@@ -37,13 +37,19 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
+        "com.sarriaroman.PhotoViewer": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
         "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     }
 }
