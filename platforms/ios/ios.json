@@ -9,6 +9,14 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"PhotoViewer\"><param name=\"ios-package\" value=\"PhotoViewer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
                             "count": 1
                         },
@@ -49,14 +57,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PhotoViewer\"><param name=\"ios-package\" value=\"PhotoViewer\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"LocalNotification\"><param name=\"ios-package\" onload=\"true\" value=\"APPLocalNotification\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
@@ -66,43 +66,43 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-sqlite-storage": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
         "com.sarriaroman.PhotoViewer": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
-        "cordova-plugin-app-event": {
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "de.appplant.cordova.plugin.local-notification": {
@@ -111,6 +111,22 @@
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/com.sarriaroman.PhotoViewer/www/PhotoViewer.js",
+            "id": "com.sarriaroman.PhotoViewer.PhotoViewer",
+            "pluginId": "com.sarriaroman.PhotoViewer",
+            "clobbers": [
+                "PhotoViewer"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-dialogs/www/notification.js",
             "id": "cordova-plugin-dialogs.notification",
@@ -350,22 +366,6 @@
             ]
         },
         {
-            "file": "plugins/com.sarriaroman.PhotoViewer/www/PhotoViewer.js",
-            "id": "com.sarriaroman.PhotoViewer.PhotoViewer",
-            "pluginId": "com.sarriaroman.PhotoViewer",
-            "clobbers": [
-                "PhotoViewer"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-device/www/device.js",
-            "id": "cordova-plugin-device.device",
-            "pluginId": "cordova-plugin-device",
-            "clobbers": [
-                "device"
-            ]
-        },
-        {
             "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
             "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
             "pluginId": "de.appplant.cordova.plugin.local-notification",
@@ -394,7 +394,10 @@
         }
     ],
     "plugin_metadata": {
+        "com.sarriaroman.PhotoViewer": "1.1.5",
+        "cordova-plugin-app-event": "1.2.0",
         "cordova-plugin-crosswalk-webview": "1.6.1",
+        "cordova-plugin-device": "1.1.1",
         "cordova-plugin-dialogs": "1.2.0",
         "cordova-plugin-file": "4.1.1",
         "cordova-plugin-file-transfer": "1.5.0",
@@ -404,9 +407,6 @@
         "cordova-plugin-whitelist": "1.2.1",
         "cordova-plugin-x-socialsharing": "5.0.12-dev",
         "cordova-sqlite-storage": "0.8.4-dev",
-        "com.sarriaroman.PhotoViewer": "1.1.5",
-        "cordova-plugin-device": "1.1.1",
-        "cordova-plugin-app-event": "1.2.0",
         "de.appplant.cordova.plugin.local-notification": "0.8.4"
     }
 }

@@ -253,6 +253,8 @@ span.menu4icontitle{
 /*Bo tri noi dung khi xem bai viet*/
 .baiviet_tieude_content {
   margin-right: 150px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }.baiviet_tieude_title{
   float: right;
   width: 150px;
@@ -265,10 +267,12 @@ span.menu4icontitle{
   float: left;
   width: 100%; 
   padding-bottom:5px; 
-  padding-top:5px;  
+  margin-top:10px;  
 }.baiviet_tieude_cleared { 
+  margin-top:15px; 
   clear: both;
 }
+
 
 
 /*Text center qldt*/

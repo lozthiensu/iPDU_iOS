@@ -1,5 +1,4 @@
-cordova.define("com.sarriaroman.PhotoViewer.PhotoViewer", function(require, exports, module) {
-var exec = require('cordova/exec');
+cordova.define("com.sarriaroman.PhotoViewer.PhotoViewer", function(require, exports, module) { var exec = require('cordova/exec');
 
 exports.show = function(url, title, options) {
     if( title == undefined ) {
