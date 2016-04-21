@@ -10,10 +10,11 @@
         "com.sarriaroman.PhotoViewer": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
-        "cordova-plugin-app-event": {
+        "com.telerik.plugins.wkwebview": {
+            "WKWEBVIEW_SERVER_PORT": "12354",
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
-        "cordova-plugin-crosswalk-webview": {
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "cordova-plugin-device": {
@@ -37,6 +38,9 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
+        "cordova-plugin-webserver": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
@@ -47,6 +51,9 @@
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "org.pbernasconi.progressindicator": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },

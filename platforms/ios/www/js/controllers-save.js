@@ -1,7 +1,12 @@
 angular.module('pduNewsApp')
-.controller('page_Saved_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar) {
+.controller('page_Saved_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaInAppBrowser) {
 
-
+    
+    $scope.openWeb = function(url){
+        $cordovaInAppBrowser.open(url, '_system');
+    };
+    
+    
     //Get list id thread saved
     $rootScope.listIDSaved = localStorageService.get('listIDSaved');
     if (!$rootScope.listIDSaved) {

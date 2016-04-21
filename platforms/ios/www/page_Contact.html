@@ -1,9 +1,16 @@
 <div ng-controller="page_Contact_Ctrl">
     <div ng-class="cssListThread">  
         <div ng-repeat="datax in listContact | filter: searchMajor">
-            <div ng-class="cssLinkMenu">
-                <div class="hoctap_text">Tên<br>Số điện thoại<br>Khoa</div>
-                <div class="hoctap_data">{{::datax.name}}<br>{{::datax.phone}}<br>{{::datax.khoa}}</div>
+            <div ng-class="cssLinkMenu"> 
+                <div class="hoctap_text">Tên</div>
+                <div class="hoctap_data">{{::datax.name}}</div>
+                <div class="clear_both"></div>
+                <div class="hoctap_text">Số điện thoại</div>
+                <div class="hoctap_data">{{::datax.phone}}</div>
+                <div class="clear_both"></div>
+                <div class="hoctap_text1">Khoa</div>
+                <div class="hoctap_data1">{{::datax.khoa}}</div>
+                <div class="clear_both"></div>
             </div>
             <div class="clear_both"></div>  
         </div>  

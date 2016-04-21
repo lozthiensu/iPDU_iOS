@@ -1,9 +1,9 @@
 <div ng-controller="page_News_Ctrl">
     <div ng-class="cssListThread">
         <div ng-repeat="itemNews in dataListNews track by itemNews.Id">
-            <div ng-if="itemNews.HasThumb == 'Yes'" class="list_ban_khach_repeat" data-target="#hienBaiNews" data-toggle="modal" ng-click="showDataId(itemNews)" role="button">
+            <div ng-if="itemNews.HasThumb == 'Yes'" class="list_ban_khach_repeat" data-target="#hienBaiNews" data-toggle="modal" ng-tap="showDataId(itemNews)" role="button">
                 <div class="catandDate">
-                    <font size="2">{{::itemNews.Cat}} - {{::itemNews.Date}}</font>
+                    <div class="rutgon_textdate"><font size="2">{{::itemNews.Cat}} - {{::itemNews.Date}}</font></div>
                 </div>
                 <div class="imgList" back-img="{{::itemNews.Thumb}}"></div>
                 <div ng-class="cssTitleList">

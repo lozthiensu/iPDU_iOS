@@ -9,6 +9,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.telerik.plugins.wkwebview/www/wkwebview.js",
+        "id": "com.telerik.plugins.wkwebview.wkwebview",
+        "pluginId": "com.telerik.plugins.wkwebview",
+        "clobbers": [
+            "wkwebview"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
@@ -280,25 +288,35 @@ module.exports = [
             "cordova.plugins.notification.local.core",
             "plugin.notification.local.core"
         ]
+    },
+    {
+        "file": "plugins/org.pbernasconi.progressindicator/www/progressIndicator.js",
+        "id": "org.pbernasconi.progressindicator.ProgressIndicator",
+        "pluginId": "org.pbernasconi.progressindicator",
+        "clobbers": [
+            "ProgressIndicator"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "com.sarriaroman.PhotoViewer": "1.1.5",
+    "cordova-plugin-webserver": "1.0.3",
+    "com.telerik.plugins.wkwebview": "0.6.9",
     "cordova-plugin-app-event": "1.2.0",
-    "cordova-plugin-crosswalk-webview": "1.6.1",
     "cordova-plugin-device": "1.1.1",
     "cordova-plugin-dialogs": "1.2.0",
     "cordova-plugin-file": "4.1.1",
     "cordova-plugin-file-transfer": "1.5.0",
-    "cordova-plugin-inappbrowser": "1.3.0",
+    "cordova-plugin-inappbrowser": "1.2.1",
     "cordova-plugin-splashscreen": "3.2.2-dev",
     "cordova-plugin-statusbar": "2.1.1",
     "cordova-plugin-whitelist": "1.2.1",
     "cordova-plugin-x-socialsharing": "5.0.12-dev",
     "cordova-sqlite-storage": "0.8.4-dev",
-    "de.appplant.cordova.plugin.local-notification": "0.8.4"
+    "de.appplant.cordova.plugin.local-notification": "0.8.4",
+    "org.pbernasconi.progressindicator": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

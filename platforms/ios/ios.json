@@ -13,6 +13,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"WKWebViewPolyfill\"><param name=\"ios-package\" value=\"WKWebViewPolyfill\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
@@ -59,6 +63,26 @@
                         {
                             "xml": "<feature name=\"LocalNotification\"><param name=\"ios-package\" onload=\"true\" value=\"APPLocalNotification\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ProgressIndicator\"><param name=\"ios-package\" value=\"ProgressIndicator\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "NSAppTransportSecurity": [
+                        {
+                            "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
+                            "count": 1
+                        }
+                    ],
+                    "WKWebViewPluginEmbeddedServerPort": [
+                        {
+                            "xml": "<string>12354</string>",
+                            "count": 1
                         }
                     ]
                 }
@@ -69,10 +93,14 @@
         "com.sarriaroman.PhotoViewer": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
-        "cordova-plugin-app-event": {
+        "cordova-plugin-webserver": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
-        "cordova-plugin-crosswalk-webview": {
+        "com.telerik.plugins.wkwebview": {
+            "WKWEBVIEW_SERVER_PORT": "12354",
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "cordova-plugin-device": {
@@ -107,6 +135,9 @@
         },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "org.pbernasconi.progressindicator": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },
     "dependent_plugins": {},
@@ -117,6 +148,14 @@
             "pluginId": "com.sarriaroman.PhotoViewer",
             "clobbers": [
                 "PhotoViewer"
+            ]
+        },
+        {
+            "file": "plugins/com.telerik.plugins.wkwebview/www/wkwebview.js",
+            "id": "com.telerik.plugins.wkwebview.wkwebview",
+            "pluginId": "com.telerik.plugins.wkwebview",
+            "clobbers": [
+                "wkwebview"
             ]
         },
         {
@@ -391,22 +430,32 @@
                 "cordova.plugins.notification.local.core",
                 "plugin.notification.local.core"
             ]
+        },
+        {
+            "file": "plugins/org.pbernasconi.progressindicator/www/progressIndicator.js",
+            "id": "org.pbernasconi.progressindicator.ProgressIndicator",
+            "pluginId": "org.pbernasconi.progressindicator",
+            "clobbers": [
+                "ProgressIndicator"
+            ]
         }
     ],
     "plugin_metadata": {
         "com.sarriaroman.PhotoViewer": "1.1.5",
+        "cordova-plugin-webserver": "1.0.3",
+        "com.telerik.plugins.wkwebview": "0.6.9",
         "cordova-plugin-app-event": "1.2.0",
-        "cordova-plugin-crosswalk-webview": "1.6.1",
         "cordova-plugin-device": "1.1.1",
         "cordova-plugin-dialogs": "1.2.0",
         "cordova-plugin-file": "4.1.1",
         "cordova-plugin-file-transfer": "1.5.0",
-        "cordova-plugin-inappbrowser": "1.3.0",
+        "cordova-plugin-inappbrowser": "1.2.1",
         "cordova-plugin-splashscreen": "3.2.2-dev",
         "cordova-plugin-statusbar": "2.1.1",
         "cordova-plugin-whitelist": "1.2.1",
         "cordova-plugin-x-socialsharing": "5.0.12-dev",
         "cordova-sqlite-storage": "0.8.4-dev",
-        "de.appplant.cordova.plugin.local-notification": "0.8.4"
+        "de.appplant.cordova.plugin.local-notification": "0.8.4",
+        "org.pbernasconi.progressindicator": "1.1.0"
     }
 }

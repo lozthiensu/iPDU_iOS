@@ -43,7 +43,7 @@
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-inappbrowser"
+            "id": "cordova-plugin-inappbrowser@~1.2.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -90,16 +90,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-crosswalk-webview": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview"
-        },
-        "is_top_level": true,
-        "variables": {
-            "XWALK_VERSION": "org.xwalk:xwalk_core_library:15+"
-        }
-    },
     "com.sarriaroman.PhotoViewer": {
         "source": {
             "type": "registry",
@@ -124,6 +114,33 @@
             "id": "cordova-plugin-app-event"
         },
         "is_top_level": false,
+        "variables": {}
+    },
+    "com.telerik.plugins.wkwebview": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-wkwebview@0.6.9"
+        },
+        "is_top_level": true,
+        "variables": {
+            "WKWEBVIEW_SERVER_PORT": "12354"
+        }
+    },
+    "cordova-plugin-webserver": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-webserver"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "org.pbernasconi.progressindicator": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
         "variables": {}
     }
 }

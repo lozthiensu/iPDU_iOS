@@ -46,7 +46,7 @@ span.menu4icontitle{
     -webkit-overflow-scrolling: touch; 
 	height: 100vh;
 }.list_baiviet{
-	padding-top:90px;
+	padding-top: 80px;
 	background-color: #fff !important;
 	padding-bottom:60px; 
     overflow-y: scroll;
@@ -63,7 +63,7 @@ span.menu4icontitle{
 .list_ban_khach_repeat { 
 	width: 100%;
     height: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
 }
 .imgList{
@@ -80,25 +80,26 @@ span.menu4icontitle{
 
 /*Hien thi ten list bai viet*/
 .title_desk{    
-    padding-left: 7px;
 	font-size:13px;
     position: absolute;
     bottom: 0;
-    left: 115px;
-    width: calc(100vw - 130px); 
+    margin-left: 110px;
+    width: calc(100vw - 125px); 
 	color:#000;
     height: 80px;
     margin-right: 15px;
-    padding-top: 5px;
+    padding-top: 8px;
     
 }.title_desk-night{     
 	color:#B2B2B2;  
 }
 .catandDate{
-    margin-top: 55px ; 
-    margin-left: 120px; 
+    margin-top: 52px ; 
+    margin-left: 110px; 
     padding-top: 0px;
     position: absolute;
+    width: calc(100vw - 125px); 
+    color:#808080;  
 }
 
 
@@ -109,6 +110,12 @@ span.menu4icontitle{
    text-overflow: ellipsis;
    display: -webkit-box; 
    -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}.rutgon_textdate{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box; 
+   -webkit-line-clamp: 1; /* number of lines to show */
    -webkit-box-orient: vertical;
 } 
 
@@ -188,7 +195,7 @@ span.menu4icontitle{
 	top: 0;   
 	left: 0;
     height: 65px; 
-    background: rgba(250,250,250,.75);  
+    background: rgba(250,250,250,.7);  
     -webkit-backdrop-filter: brightness(1.5) blur(15px);
 }.menu_header-night{
 	color: #FAFAFA;
@@ -206,7 +213,7 @@ span.menu4icontitle{
     bottom: 0; 
     z-index: 100;
 	border-top:#9E9E9E solid 0.5px !important;
-    background: rgba(250,250,250,.85) !important;  
+    background: rgba(250,250,250,.7) !important;  
     -webkit-backdrop-filter: brightness(1.5) blur(15px);
 }.menu_footer-night{
 	color:#2dbe60;      
@@ -307,19 +314,20 @@ span.menu4icontitle{
 	width:100%;
 	color:	#000; 
 	text-align:left;  
-	padding: 15px;
+	padding: 20px;
 	margin-top:0px;
-/*    border-bottom: 0.5px solid #999999 !important;*/
+    position: relative;
+    text-indent: 25px;
+/*    border-bottom: 1px solid #999999 !important;*/
 }
 .link_menu-night {
 	color: #FAFAFA;
-/*    border-bottom: 0.5px solid #212121 !important; */
+/*    border-bottom: 1px solid #212121 !important; */
 }
-.link_menu-night:last-child {
-    border-bottom: none;  
-}
-.link_menu:last-child {
-    border-bottom: none; 
+.canhleicon{
+    position: absolute;
+    margin-top: -4px;
+    margin-left: -55px;
 }
 
 
@@ -515,11 +523,31 @@ background-color: #0d0d0d !important;
     left:0;
     text-align: left;
     float:left; 
+    padding: 5px 0 5px 0;
+    text-indent: 0px;
 }
 .hoctap_data{
+    border-bottom: 1px solid #262626;
     right:0;
     text-align: right; 
     color: #B6B6B6;
+    padding: 5px 0 5px 0;
+    text-indent: 0px;
+}
+.hoctap_text1{
+    width: 35%;
+    left:0;
+    text-align: left;
+    float:left;
+    padding: 5px 0 5px 0;
+    text-indent: 0px;
+}
+.hoctap_data1{
+    padding: 5px 0 5px 0;
+    right:0;
+    text-align: right; 
+    color: #B6B6B6;
+    text-indent: 0px;
 }
 
 
@@ -534,6 +562,12 @@ background-color: #0d0d0d !important;
     right:0;
     text-align: right; 
     color: #B6B6B6;
+}
+.canhletrai{
+    text-indent: -15px;
+}
+.canhlephai{
+    text-indent: 0px;
 }
 .info_div{
     left:0;
@@ -645,16 +679,16 @@ i {
 
 /* Định dạng lại box login*/
 .tieude_login {  
-	margin-top:  -60px; 
-	margin-left: 85px; 
+	margin-top:  -55px; 
+	margin-left: 90px; 
 	display: block; 
 	width: auto;   
 }.icon_tieude_login {  
 	border: #F0F4F7 solid 8px !important; 
-    margin-left: 10px;
+    margin-left: 15px;
     max-width: 65px;
     max-height: 65x;
-	margin-top: 10px; 
+	margin-top: 15px; 
     border-radius: 50%;	
 }
 
@@ -662,6 +696,7 @@ i {
 /*Dinh dang xem noi dung box login*/
 .xem_noidung { 
 	padding-top: 15px;
+    border-bottom: 0.5px solid #9E9E9E;
 }
 
 
@@ -670,22 +705,54 @@ i {
 	height:40px;
 	width: 100%;
 	border:none;
-	margin-top: 10px;  
+	margin: 15px 15px 0 15px;  
 	text-indent: 10px;	
     color: #2dbe60;
     font-weight: bold;
-    border-bottom: 0.5px solid #2dbe60;
+/*    border-bottom: 0.5px solid #2dbe60;*/
+    border-left: 5px solid #2dbe60;
+    border-radius: 8px;
+
 }
 .button_login:focus, .input_login:focus{
     outline: 0;
 }.button_login {
 	background-color: #2dbe60;
 	height:40px;
-	width: 100%;
+	width: calc(100vw - 30px);
 	border:none;
-	margin-top: 10px;  
-    border-radius: 8px;	 
+    border-radius: 8px;
+	margin: 15px 15px 15px 15px;  
+}
+.button_hp:focus, .input_login:focus{
+    outline: 0;
+}.button_hp {
+	background-color: #2dbe60;
+	height:40px;
+	width: auto;
+	border:none;
+	margin-left : 10px;  
+	margin-top : 10px; 
+    border-radius: 8px;
+    display: inline-block;
 } 
+.button_ca:focus, .input_login:focus{
+    outline: 0;
+}.button_ca {
+	background-color: #F44336;
+	height:40px;
+	width: auto;
+	border:none;
+	margin-left : 10px;
+	margin-top : 10px;  
+    border-radius: 8px;
+    display: inline-block;
+}
+.nutdangki{
+    margin: 0 auto;
+    display: inline-block;
+    overflow: hidden;
+}
 
 
 /*Toggles cai dat*/
