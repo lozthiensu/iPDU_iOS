@@ -33,8 +33,13 @@ angular.module('pduNewsApp')
 
     //Determine status modal view thread
     $scope.getTrangThaiModal = function () {
-        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig")
+        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig"){
             $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
+            $timeout(function () {
+                $scope.dismiss();
+                $scope.datapdu = [];
+            }, 300);
+        }
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
     }
@@ -139,10 +144,7 @@ angular.module('pduNewsApp')
     //Close modal view thread
     $scope.huyData = function () {
         $scope.getTrangThaiModal();
-        $timeout(function () {
-            $scope.dismiss();
-            $scope.datapdu = [];
-        }, 300);
+        angular.element('#caiDatKhiXem').modal('hide');
     };
 
 

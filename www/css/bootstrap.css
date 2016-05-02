@@ -5256,11 +5256,11 @@ button.closeImg {
   z-index: 1040;
   background-color: #000;
   filter: alpha(opacity=0.5);
-  opacity: 0.5;
+  opacity: 0;
 }
 .modal-backdrop.fade {
   filter: alpha(opacity=0);
-  opacity: 00;
+  opacity: 0;
 }
 .modal-backdrop.in {
   filter: alpha(opacity=0);
