@@ -1,10 +1,11 @@
 angular.module('pduNewsApp')
-.controller('page_Qldt_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaDialogs, $cordovaInAppBrowser) {
+.controller('page_Qldt_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaDialogs, $cordovaInAppBrowser, $cordovaProgress) {
     
     
     //Open link from this view
     $scope.openWeb = function(url){
-        $cordovaInAppBrowser.open(url, '_system')  
+        $cordovaInAppBrowser.open(url, '_system');
+        delete url;
     };
 
     
@@ -42,7 +43,6 @@ angular.module('pduNewsApp')
         });
         localStorageService.set('listIDSaved', $scope.tempListId);
         $cordovaSQLite.execute($rootScope.db, "INSERT INTO sqlSave (baiviet_id, baiviet_title, baiviet_date, baiviet_author, baiviet_content, baiviet_img, baiviet_thumb) VALUES (?,?,?,?,?,?,?)", [$scope.datapdu[0].Id + 'qldt', $scope.datapdu[0].Title, $scope.datapdu[0].Date, $scope.datapdu[0].Author, $scope.datapdu[0].Content, " ", "No"]).then(function (res) {}, function (err) {
-            console.error(err);
         });
     };
 
@@ -52,7 +52,7 @@ angular.module('pduNewsApp')
         $scope.tempListId = $rootScope.listIDSaved;
         tongSoBai = $scope.tempListId.length;
         for (i = 0; i < tongSoBai; i++) {
-            if ($scope.tempListId[i].Id === idBaiViet.Id + 'qldt') {
+            if ($scope.tempListId[i].Id == idBaiViet.Id + 'qldt') {
                 $scope.tempListId.splice(i, 1);
                 localStorageService.set('listIDSaved', $scope.tempListId);
                 break;
@@ -70,12 +70,12 @@ angular.module('pduNewsApp')
         $scope.tonTai = false;
         n = $scope.tempListId.length;
         for (i = 0; i < n; i++) {
-            if (idBaiViet.Id + 'qldt' === $scope.tempListId[i].Id) {
+            if (idBaiViet.Id + 'qldt' == $scope.tempListId[i].Id) {
                 $scope.tonTai = true;
                 break;
             }
         }
-        delete n; delete i;
+        delete n; delete i; delete $scope.tempListId;
         return $scope.tonTai;
     };
 
@@ -83,8 +83,13 @@ angular.module('pduNewsApp')
     //Determnie status model view thread
     $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
     $scope.getTrangThaiModal = function () {
-        if ($scope.classHienThiBaiViet === "modal animated fadeInRightBig")
+        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig"){
             $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
+            $timeout(function () {
+                $scope.dismiss();
+                $scope.datapdu = [];
+            }, 300);
+        }
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
     };
@@ -159,10 +164,10 @@ angular.module('pduNewsApp')
     //Check login to sever
     $scope.Ktra = function () {
             pduService.Qldt_postLogin({
-                user: $scope.inforLogin.taiKhoan
-                , pass: $scope.inforLogin.matKhau
+                user: $scope.inforLogin.taiKhoan,
+                pass: $scope.inforLogin.matKhau
             }).success(function (data) {
-                if (data[0].Login === "Yes") {
+                if (data[0].Login == "Yes") {
                     daDangnhap = "true";
                     $scope.loginRec = data;
                     localStorageService.set('saveLogin', [{
@@ -193,7 +198,7 @@ angular.module('pduNewsApp')
                 user: $rootScope.saveLogin[0].user
                 , pass: $rootScope.saveLogin[0].pass
             }).success(function (data) {
-                if (data[0].Login === "Yes") {
+                if (data[0].Login == "Yes") {
                     daDangnhap = "true";
                     $scope.loginRec = data;
                     $scope.titleLoginBox = $scope.loginRec[0].Name;
@@ -221,8 +226,8 @@ angular.module('pduNewsApp')
     $scope.dangXuat = function () {
         daDangnhap = "chua";
         localStorageService.set('saveLogin', [{
-            "user": ""
-            , "pass": ""
+            "user": "",
+            "pass": ""
         }]);
         $scope.titleLoginBox = "Thông tin đăng nhập";
     };
@@ -231,13 +236,14 @@ angular.module('pduNewsApp')
     //Declare all of category
     $scope.danhSachHocPhan = [{ "name": "Những nguyên lí cơ bản của chủ nghĩa Mác-Lênin 1",
                                 "id": "nl1",
-                                "lophoc":[    {"id":"cn1",
+                                "lophoc":[  {"id":"cn1",
                                             "name":"Lớp CN 1"},
                                             {"id":"cn2",
                                             "name":"Lớp CN 2"},
                                             {"id":"cn3",
                                             "name":"Lớp CN 3"}]
                               }];
+    $scope.nullLop = [{"id":"null", "name":""}];
     
     
     //Đăng kí học phần 
@@ -251,8 +257,6 @@ angular.module('pduNewsApp')
             userr = $scope.inforLogin.taiKhoan;
             passs = $scope.inforLogin.matKhau;
         }
-        
-        
         $scope.hpDaKi = []; 
         pduService.Qldt_insertHocPhan({
             user: userr,
@@ -298,7 +302,7 @@ angular.module('pduNewsApp')
     };
 
     
-    //
+    //Get data from sever
     $scope.showData = function () {
         $scope.noMoreItemsAvailable = false;
         pageIndex = 1; 
@@ -315,15 +319,20 @@ angular.module('pduNewsApp')
         theLoai = daChon.id;
         $scope.noMoreItemsAvailable = false;
         $scope.showData();
+        delete daChon;
     };
 
 
     //Opening view modal and show thread
     $scope.showDataId = function (idBaiViet) {
+        $cordovaProgress.showSimple(false);
         pduService.Qldt_getId(idBaiViet.Id).success(function (datapdus) {
             $scope.datapdu = datapdus;
+            $cordovaProgress.hide();
+            delete datapdus;
         });
         $scope.getTrangThaiModal();
+        delete idBaiViet;
     };
 
 
@@ -339,10 +348,7 @@ angular.module('pduNewsApp')
     //Close view modal and destroy data
     $scope.huyData = function () {
         $scope.getTrangThaiModal();
-        $timeout(function () {
-            $scope.dismiss();
-            delete $scope.datapdu;
-        }, 300);
+        angular.element('#caiDatKhiXemQldt').modal('hide');
     };
 
 

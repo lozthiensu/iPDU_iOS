@@ -67,6 +67,10 @@
                         {
                             "xml": "<feature name=\"ProgressIndicator\"><param name=\"ios-package\" value=\"ProgressIndicator\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Brightness\"><param name=\"ios-package\" value=\"Brightness\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -137,6 +141,9 @@
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "org.pbernasconi.progressindicator": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
+        "cordova.plugin.Brightness": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },
@@ -438,6 +445,14 @@
             "clobbers": [
                 "ProgressIndicator"
             ]
+        },
+        {
+            "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
+            "id": "cordova.plugin.Brightness.Brightness",
+            "pluginId": "cordova.plugin.Brightness",
+            "clobbers": [
+                "cordova.plugins.brightness"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -456,6 +471,7 @@
         "cordova-plugin-x-socialsharing": "5.0.12-dev",
         "cordova-sqlite-storage": "0.8.4-dev",
         "de.appplant.cordova.plugin.local-notification": "0.8.4",
-        "org.pbernasconi.progressindicator": "1.1.0"
+        "org.pbernasconi.progressindicator": "1.1.0",
+        "cordova.plugin.Brightness": "0.1.1"
     }
 }

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0530B7B4AD5F454692546E1C /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C41716D147C4C19855D6856 /* CDVFileTransfer.m */; };
 		055BF9153E6F421ABA1278A5 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 741EACC9841F461F8D71CA6F /* CDVLocalFilesystem.m */; };
@@ -78,6 +77,8 @@
 		F848994290834A35B753320D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5F2CD9E2441F6AA459C55 /* MBProgressHUD.m */; };
 		FDD26E8B423445888B0D3F41 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA923AE6681E426ABF33D064 /* libsqlite3.dylib */; };
 		FF4AEAC96847405DAA3FC4BA /* ProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCCF345C531D4BB29AB8297E /* ProgressIndicator.bundle */; };
+		948C593CB4764CAC91AD5237 /* Brightness.m in Sources */ = {isa = PBXBuildFile; fileRef = C549E1AFAB7E4FDEBD36B7E6 /* Brightness.m */; };
+		940090E6C30E450C96446783 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DCC245FDAC4D0A81B0FE3D /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,9 @@
 		FA923AE6681E426ABF33D064 /* libsqlite3.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FBCA1C2401E944B2BBAC13A5 /* MessageUI.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF79CA3E884941059070627C /* UILocalNotification+APPLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILocalNotification+APPLocalNotification.h"; path = "de.appplant.cordova.plugin.local-notification/UILocalNotification+APPLocalNotification.h"; sourceTree = "<group>"; };
+		C549E1AFAB7E4FDEBD36B7E6 /* Brightness.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Brightness.m"; path = "cordova.plugin.Brightness/Brightness.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		11C9399CA3874619B65F8A72 /* Brightness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Brightness.h"; path = "cordova.plugin.Brightness/Brightness.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		72DCC245FDAC4D0A81B0FE3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,7 @@
 				F0FA02100B884055B69EBF05 /* Social.framework in Frameworks */,
 				DDE447EF3C7B48D396B6DB19 /* MessageUI.framework in Frameworks */,
 				FDD26E8B423445888B0D3F41 /* libsqlite3.dylib in Frameworks */,
+				940090E6C30E450C96446783 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +314,7 @@
 				83DD2A2512104AD183624B47 /* Social.framework */,
 				FBCA1C2401E944B2BBAC13A5 /* MessageUI.framework */,
 				FA923AE6681E426ABF33D064 /* libsqlite3.dylib */,
+				72DCC245FDAC4D0A81B0FE3D /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -378,6 +384,8 @@
 				42791C18645B4CF59EFC7842 /* ProgressIndicator.m */,
 				F830E86BBBC6410CA7A1D19B /* MBProgressHUD.h */,
 				512FB425BD2F4AC8953F95CE /* ProgressIndicator.h */,
+				C549E1AFAB7E4FDEBD36B7E6 /* Brightness.m */,
+				11C9399CA3874619B65F8A72 /* Brightness.h */,
 			);
 			name = Plugins;
 			path = iPDU/Plugins;
@@ -596,6 +604,7 @@
 				A38C4ADD5E6D42D0B73EE758 /* UILocalNotification+APPLocalNotification.m in Sources */,
 				F848994290834A35B753320D /* MBProgressHUD.m in Sources */,
 				6FAE86562BF34D778DB7298D /* ProgressIndicator.m in Sources */,
+				948C593CB4764CAC91AD5237 /* Brightness.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

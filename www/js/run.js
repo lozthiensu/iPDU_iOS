@@ -22,6 +22,7 @@ angular.module('pduNewsApp')
     $rootScope.dataSave = []; //Contain data thread read from SQLite
     $rootScope.saveLogin = []; //Contain login info 
     $rootScope.SavedSession = []; //Contain index tab
+    $rootScope.doSangMay = 0;
 
 
     //When device ready, do it
@@ -42,8 +43,20 @@ angular.module('pduNewsApp')
             $cordovaSQLite.execute($rootScope.db, "CREATE TABLE IF NOT EXISTS sqlSave(baiviet_id text PRIMARY KEY, baiviet_title text, baiviet_date text, baiviet_author text, baiviet_content text, baiviet_img text, baiviet_thumb text)");
         };
         $rootScope.khoiTao();
-
-
+        
+        
+        window.brightness = cordova.require("cordova.plugin.Brightness.Brightness");
+        brightness.getBrightness(win, fail);
+        function win(status) {
+            n = parseFloat(status);
+            x = Math.round(n * 1000) / 1000;
+            $rootScope.slider.value = Math.floor(x * 100);
+        }
+        function fail(status) {
+            alert('Error: ' + status);
+        }
+        
+        
     }
 
 })

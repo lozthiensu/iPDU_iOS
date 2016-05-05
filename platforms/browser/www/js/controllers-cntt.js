@@ -1,10 +1,11 @@
 angular.module('pduNewsApp')
-.controller('page_Cntt_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaInAppBrowser) {
+.controller('page_Cntt_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaInAppBrowser, $cordovaProgress) {
 
     
     //Open link from this view
     $scope.openWeb = function(url){
-        $cordovaInAppBrowser.open(url, '_system'); 
+        $cordovaInAppBrowser.open(url, '_system');
+        delete url;
     };
     
 
@@ -21,6 +22,7 @@ angular.module('pduNewsApp')
     
     //Save thread to SQLite
     $scope.saveToSQLite = function (idBaiViet) {
+        $scope.startDownload = 0;
         //Save all image in this thread
         $scope.saved = [];
         $scope.listImgFromSever = idBaiViet.Img;
@@ -55,6 +57,15 @@ angular.module('pduNewsApp')
             $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
             .then(function (result) {}, function (error) {
             }, function (progress) {
+                intFirst = parseInt($scope.startDownload);
+                if( intFirst == 0 ){
+                    $cordovaProgress.showSimple(false);
+                    $scope.startDownload = 1;
+                }
+                $scope.downloadProgress = (progress.loaded / progress.total) * 100;                intFirst = parseInt($scope.downloadProgress);
+                if( intFirst >= 100 ){
+                    $cordovaProgress.hide();
+                }
             });
         }
         //Edit content to save
@@ -95,7 +106,7 @@ angular.module('pduNewsApp')
             console.error(err);
         });
         //Delete all variable to save memory
-        delete numFor; delete i; delete url; delete filename; delete targetPath; delete trustHosts;  delete options; delete filePathNew; delete textBefore; delete textAfter; delete dem; delete start; delete z; delete imgList; delete imgThumb; delete numForx; delete $scope.saved; delete $scope.listImgFromSever;
+        delete numFor; delete i; delete url; delete filename; delete targetPath; delete trustHosts;  delete options; delete filePathNew; delete textBefore; delete textAfter; delete dem; delete start; delete z; delete imgList; delete imgThumb; delete numForx; delete $scope.saved; delete $scope.listImgFromSever; delete intFirst; delete $scope.downloadProgress;
     };
 
 
@@ -105,8 +116,25 @@ angular.module('pduNewsApp')
         $scope.listImgSaved = idBaiViet.Img;
         numFor = $scope.listImgSaved.length;
         for (i = 0; i < numFor; i++) {
+            //Decode url image file name
             url = $scope.listImgSaved[i].Url;
+            url = decodeURI(url);
             filename = url.split("/").pop();
+            //Convert to vietnamese unsigned
+            filename= filename.toLowerCase(); 
+            filename= filename.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ  |ặ|ẳ|ẵ/g,"a"); 
+            filename= filename.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+            filename= filename.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+            filename= filename.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ  |ợ|ở|ỡ/g,"o"); 
+            filename= filename.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+            filename= filename.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+            filename= filename.replace(/đ/g,"d");
+            //Replace specical character to -
+            filename= filename.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\:|\;|\'| |\"|\&|\#|\[|\]|~|$|_/g,"-");
+            //Replace -- to -
+            filename= filename.replace(/-+-/g,"-");
+            //Remove - in the first char
+            filename= filename.replace(/^\-+|\-+$/g,"");
             $cordovaFile.removeFile(cordova.file.dataDirectory, filename)
                 .then(function (success) {}, function (error) {});
         }
@@ -114,7 +142,7 @@ angular.module('pduNewsApp')
         $scope.tempListId = $rootScope.listIDSaved;
         tongSoBai = $scope.tempListId.length;
         for (i = 0; i < tongSoBai; i++) {
-            if ($scope.tempListId[i].Id === idBaiViet.Id + 'cntt') {
+            if ($scope.tempListId[i].Id == idBaiViet.Id + 'cntt') {
                 $scope.tempListId.splice(i, 1);
                 localStorageService.set('listIDSaved', $scope.tempListId);
                 break;
@@ -122,7 +150,7 @@ angular.module('pduNewsApp')
         }
         //Delete thread from SQLite
         $cordovaSQLite.execute($rootScope.db, "DELETE FROM sqlSave WHERE baiviet_id = ?", [idBaiViet.Id + 'cntt']).then(function (res) {});
-        delete numFor; delete i; delete url; delete filename; delete tongSoBai; delete $scope.listImgSaved;
+        delete numFor; delete i; delete url; delete filename; delete tongSoBai; delete $scope.listImgSaved; delete $scope.tempListId;
     };
 
 
@@ -133,12 +161,12 @@ angular.module('pduNewsApp')
         $scope.tonTai = false;
         n = $scope.tempListId.length;
         for (i = 0; i < n; i++) {
-            if (idBaiViet.Id + 'cntt' === $scope.tempListId[i].Id) {
+            if (idBaiViet.Id + 'cntt' == $scope.tempListId[i].Id) {
                 $scope.tonTai = true;
                 break;
             }
         }
-        delete n; delete i;
+        delete n; delete i; delete $scope.tempListId;
         return $scope.tonTai;
     };
 
@@ -146,8 +174,13 @@ angular.module('pduNewsApp')
     //Determnie status model view thread
     $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
     $scope.getTrangThaiModal = function () {
-        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig")
+        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig"){
             $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
+            $timeout(function () {
+                $scope.dismiss();
+                $scope.datapdu = [];
+            }, 300);
+        }
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
     };
@@ -161,7 +194,7 @@ angular.module('pduNewsApp')
         localStorageService.set('settingData', [{
             "sizeFont": index
             , "nightMode": $rootScope.settingData[0].nightMode
-    }]);
+        }]);
         $scope.Switch();
         if ($rootScope.settingData[0].sizeFont == 1)
             $rootScope.cssFontSize = "font1";
@@ -222,7 +255,6 @@ angular.module('pduNewsApp')
 
     //Function handle get data from sever    
     $scope.getDataFromSever = function () {
-        //$scope.noMoreItemsAvailable = false;
         if ($scope.noMoreItemsAvailable == false) {
             pduService.Cntt_getPage(pageIndex, theLoai).success(function (data) {
                 n = data.length, i = 0;
@@ -259,10 +291,14 @@ angular.module('pduNewsApp')
 
     //Opening view modal and show thread
     $scope.showDataId = function (idBaiViet) {
+        $cordovaProgress.showSimple(false);
         pduService.Cntt_getId(idBaiViet.Id).success(function (datapdus) {
             $scope.datapdu = datapdus;
+            $cordovaProgress.hide();
+            delete datapdus;
         });
         $scope.getTrangThaiModal();
+        delete idBaiViet;
     };
 
 
@@ -277,17 +313,15 @@ angular.module('pduNewsApp')
     
     //Set img to zoom
     $scope.zoomThisImage = function (url, data) {
-        PhotoViewer.show(data[url].Url, $scope.datapdu[0].Title); 
+        PhotoViewer.show(data[url].Url, $scope.datapdu[0].Title);
+        delete url; delete data;
     };
 
 
     //Close view modal and destroy data
     $scope.huyData = function () {
         $scope.getTrangThaiModal();
-        $timeout(function () {
-            $scope.dismiss();
-            delete $scope.datapdu;
-        }, 300);
+        angular.element('#caiDatKhiXemCntt').modal('hide');
     };
 
     

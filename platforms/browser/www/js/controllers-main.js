@@ -84,9 +84,18 @@ angular.module('pduNewsApp')
 			});  
     };
     $scope.autoRefresh();
+    $scope.countDieInterval = 0;
     $scope.intervalPromise = $interval(function(){
-          $scope.autoRefresh();
-    }, 90000);
+        $scope.countDieInterval++;
+        if($scope.countDieInterval == 10){
+            $interval.cancel($scope.intervalPromise);
+            $scope.intervalPromiseCon = $interval(function(){
+                $scope.countDieInterval++;
+                $scope.autoRefresh();
+            }, 90000);
+        }
+        $scope.autoRefresh();
+    }, 20000);
     
     
     //Set current index tab = idTad was saved

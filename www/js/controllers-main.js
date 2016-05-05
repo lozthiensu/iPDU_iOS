@@ -2,6 +2,30 @@ angular.module('pduNewsApp')
 .controller('main_Ctrl', function($scope, pduService, $rootScope,$timeout, localStorageService, $cordovaSQLite, $cordovaStatusbar, $cordovaLocalNotification, $cordovaDialogs, $interval, $cordovaInAppBrowser) { 
     
     
+    //Slider set brightness
+    $rootScope.slider = {
+        value: 0
+        , options: {
+            floor: 0
+            , ceil: 100
+            , step: 5
+            , precision: 1
+            , hidePointerLabels: true
+            , hideLimitLabels: true
+            , ticksTooltip: true
+            , ticksValuesTooltip: true
+            , onChange: function () {
+                window.brightness = cordova.require("cordova.plugin.Brightness.Brightness");
+                brightness.setBrightness($rootScope.slider.value / 100, win, fail);
+                function win(status) {}
+                function fail(status) {
+                    $cordovaDialogs.alert(status, "Lỗi !!!");
+                }
+            }
+        }
+    }; 
+    
+    
     //Open link from this view
     $scope.openWeb = function(url){
         $cordovaInAppBrowser.open(url, '_system');

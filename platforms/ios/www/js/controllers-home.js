@@ -184,6 +184,17 @@ angular.module('pduNewsApp')
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
     };
+    $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+    $scope.getTrangThaiCaiDat = function () {
+        if ($scope.classHienThiCaiDat == "modal-setting animated fadeInUpBig"){
+            $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+            $timeout(function () {
+                angular.element('#caiDatKhiXem').modal('hide');
+            }, 500);
+        }
+        else
+            $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";
+    };
 
 
     //Set font size from frontend

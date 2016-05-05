@@ -2,7 +2,7 @@
     <div ng-class="cssListThread">
         <div infinite-scroll='getDataFromSever()' infinite-scroll-distance='2' infinite-scroll-parent='true'>
             <div ng-repeat="itemCntt in dataListCntt track by itemCntt.Id">
-                <div ng-if="itemCntt.HasThumb == 'Yes'" class="list_ban_khach_repeat" data-target="#hienBaiCntt" data-toggle="modal" ng-click="showDataId(itemCntt)" role="button">
+                <div ng-if="itemCntt.HasThumb == 'Yes'" class="list_ban_khach_repeat" data-target="#hienBaiCntt" data-toggle="modal" ng-tap="showDataId(itemCntt)" role="button">
                     <div class="catandDate">
                         <div class="rutgon_textdate"><font size="2">{{::itemCntt.Cat}} - {{::itemCntt.Date}}</font></div>
                     </div>

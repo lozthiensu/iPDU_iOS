@@ -296,6 +296,14 @@ module.exports = [
         "clobbers": [
             "ProgressIndicator"
         ]
+    },
+    {
+        "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
+        "id": "cordova.plugin.Brightness.Brightness",
+        "pluginId": "cordova.plugin.Brightness",
+        "clobbers": [
+            "cordova.plugins.brightness"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -316,7 +324,8 @@ module.exports.metadata =
     "cordova-plugin-x-socialsharing": "5.0.12-dev",
     "cordova-sqlite-storage": "0.8.4-dev",
     "de.appplant.cordova.plugin.local-notification": "0.8.4",
-    "org.pbernasconi.progressindicator": "1.1.0"
+    "org.pbernasconi.progressindicator": "1.1.0",
+    "cordova.plugin.Brightness": "0.1.1"
 }
 // BOTTOM OF METADATA
 });

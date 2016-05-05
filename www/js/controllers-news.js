@@ -1,5 +1,5 @@
 angular.module('pduNewsApp')
-.controller('page_News_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaInAppBrowser, $cordovaProgress) {
+.controller('page_News_Ctrl', function ($scope, pduService, $rootScope, $timeout, localStorageService, $cordovaSQLite, $cordovaFileTransfer, $cordovaFile, $cordovaSocialSharing, $cordovaStatusbar, $cordovaInAppBrowser, $cordovaProgress, $cordovaDialogs) {
 
     
     //Open link from this view
@@ -179,10 +179,21 @@ angular.module('pduNewsApp')
             $timeout(function () {
                 $scope.dismiss();
                 $scope.datapdu = [];
-            }, 300);
+            }, 500);
         }
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
+    };
+    $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+    $scope.getTrangThaiCaiDat = function () {
+        if ($scope.classHienThiCaiDat == "modal-setting animated fadeInUpBig"){
+            $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+            $timeout(function () {
+                angular.element('#caiDatKhiXemNews').modal('hide');
+            }, 500);
+        }
+        else
+            $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";
     };
 
 

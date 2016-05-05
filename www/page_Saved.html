@@ -46,19 +46,22 @@
                     <div class="paddingheader"> </div>
                     <button type="button" class="back_back ion-ios-arrow-left" ng-tap="huyData();"></button>
                     <span class="modal-title">Xem bài viết</span>
-                    <button type="button" class="setting_on_read ion-ios-gear-outline" data-target="#caiDatKhiXemSave" data-toggle="modal" role="button"></button>
+                    <button type="button" class="setting_on_read ion-ios-gear-outline" data-target="#caiDatKhiXemSave" ng-tap="getTrangThaiCaiDat()" data-toggle="modal" role="button"></button>
                 </div>
             </div>
         </div>
     </div>
-    <div id="caiDatKhiXemSave" class="modal-setting fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div id="caiDatKhiXemSave" ng-class="classHienThiCaiDat">
         <div ng-class="cssModal">
             <div ng-class="cssModalHeaderSetting">
-                <button type="button" class="close ion-ios-close-outline" data-dismiss="modal"></button>
+                <button type="button" class="close ion-ios-close-outline" ng-tap="getTrangThaiCaiDat()"></button>
                 <span class="modal-title">Cài đặt</span>
             </div>
             <div class="setting_content">
-                <div class="setting_title"><i span class="ion-arrow-resize size-17"></i><span class="size-22">A </span><span class="size-13"> Cỡ chữ</span></div>
+                <div class="setting_title"> 
+                    <i class="canhicon ion-ios-eye-outline size-35"></i>
+                    <span class="size-13 cacnhtext"> Cỡ chữ</span>
+                </div>
                 <div class="setting_info">
                     <div class="sizefont_buttons" class="text-center">
                         <a ng-class="{'active':isCurrentsizeFont(1)}" ng-touchend="setCurrentsizeFont(1);">
@@ -77,16 +80,26 @@
                 </div>
                 <div class="setting_cleared"></div>
                 <div class="setting_title">
-                    <i span class="ion-ios-cloudy-night-outline size-35"></i>
-                    <span class="size-13"> Ban đêm</span>
+                    <i class="canhicon ion-ios-cloudy-night-outline size-35"></i>
+                    <span class="size-13 cacnhtext"> Ban đêm</span>
                 </div>
                 <div ng-repeat="settingData in settingData" class="setting_info">
                     <div class="setting_info_toogle">
-                        <input type="checkbox" name="checkbox1" id="checkbox3" class="ios-toggle" ng-model="settingData.nightMode" />
-                        <label for="checkbox3" class="checkbox-label"></label>
+                        <form>
+                            <switch id="enabled" name="enabled" ng-model="settingData.nightMode" on="O" off="-" class="green"></switch>
+                        </form>
                     </div>
                 </div>
                 <div class="setting_cleared"></div>
+                <div class="setting_title">
+                    <i class="canhicon ion-ios-sunny-outline size-35"></i>
+                    <span class="size-13 cacnhtext"> Độ sáng</span>
+                </div>
+                <div ng-repeat="settingData in settingData" class="setting_info">
+                    <div class="setting_brightnes"> 
+                       <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>

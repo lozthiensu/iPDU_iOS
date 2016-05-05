@@ -24,9 +24,9 @@
     <div ng-include="'page_News.html'" ng-hide="!isCurrentIndex(0)" ng-class="slideMain"></div>
     <div ng-include="'page_Qldt.html'" ng-hide="!isCurrentIndex(1)" ng-class="slideMain"></div>
     <div ng-include="'page_Home.html'" ng-hide="!isCurrentIndex(2)" ng-class="slideMain"></div>
-    <div ng-include="'page_Saved.html'" ng-hide="!isCurrentIndex(4)" ng-class="slideMain"></div>
-    <div ng-include="'page_Contact.html'" ng-hide="!isCurrentIndex(5)" ng-class="slideMain"></div>
-    <div ng-include="'page_Cntt.html'" ng-hide="!isCurrentIndex(6)" ng-class="slideMain"></div>
+    <div ng-include="'page_Saved.html'" ng-if="isCurrentIndex(4)" ng-class="slideMain"></div>
+    <div ng-include="'page_Contact.html'" ng-if="isCurrentIndex(5)" ng-class="slideMain"></div>
+    <div ng-include="'page_Cntt.html'" ng-if="isCurrentIndex(6)" ng-class="slideMain"></div>
     <div ng-hide="!isCurrentIndex(3)" ng-class="slideMain">
         <div ng-class="cssMenuOther">
             <div ng-click="setCurrentIndex(4);readListFromSQLite();">

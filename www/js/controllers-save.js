@@ -28,10 +28,10 @@ angular.module('pduNewsApp')
     $scope.datapdu = [];
 
 
-    $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
 
 
     //Determine status modal view thread
+    $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
     $scope.getTrangThaiModal = function () {
         if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig"){
             $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
@@ -43,6 +43,17 @@ angular.module('pduNewsApp')
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
     }
+    $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+    $scope.getTrangThaiCaiDat = function () {
+        if ($scope.classHienThiCaiDat == "modal-setting animated fadeInUpBig"){
+            $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+            $timeout(function () {
+                angular.element('#caiDatKhiXemSave').modal('hide');
+            }, 500);
+        }
+        else
+            $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";
+    };
 
 
     //Set new font size

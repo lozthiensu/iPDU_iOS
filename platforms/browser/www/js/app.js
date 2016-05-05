@@ -1,4 +1,4 @@
-angular.module('pduNewsApp', ['ui.router', 'LocalStorageModule', 'ngCordova', 'infinite-scroll', 'ngTouch', 'ng.httpLoader'])
+angular.module('pduNewsApp', ['ui.router', 'LocalStorageModule', 'ngCordova', 'infinite-scroll', 'ngTouch', 'uiSwitch'])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('main', {
@@ -39,10 +39,4 @@ angular.module('pduNewsApp', ['ui.router', 'LocalStorageModule', 'ngCordova', 'i
          ;
     $urlRouterProvider.otherwise('/main');
 })
-.config(['httpMethodInterceptorProvider',
-    function (httpMethodInterceptorProvider) {
-       // httpMethodInterceptorProvider.whitelistDomain('pdu.edu.vn');
-        //httpMethodInterceptorProvider.whitelistDomain('acm.svpdu.net');
-    }
-])
 ;

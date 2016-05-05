@@ -233,27 +233,39 @@ span.menu4icontitle{
 
 /*Cai dat*/
 .setting_content {
-  margin-left: 150px;
+  margin-left: 110px;
 }
 .setting_title{
   float: left;
-  width: 150px;
-  margin-left: -150px;  
-  padding-left: 15px;
+  width: 110px;
+  margin-left: -110px;  
+  padding-left: 7px;
   padding-bottom:5px; 
-  padding-top:5px; 
+  margin-top: 15px; 
+    position: relative;
 }.setting_info{
+  margin-top: 7px; 
   float: right;
   width: 100%; 
   padding-bottom:5px; 
-  padding-top:5px;  
+  padding-top: 3px;  
 }.setting_info_toogle{
   float: auto;
-  width: 60px;
+  width: 75px;
   margin-left:40%;  
   text-align: center;
+}.setting_brightnes{
+  float: left;
+  width: 90%; 
+  margin-top: -20px;   
 }.setting_cleared {
   clear: both;
+}.canhicon{ 
+    position: absolute;
+    margin-top: -10px;
+}.cacnhtext{ 
+    position: absolute;
+    margin-left: 27px;
 }
 
 
