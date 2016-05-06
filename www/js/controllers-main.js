@@ -103,11 +103,10 @@ angular.module('pduNewsApp')
                         $cordovaDialogs.alert($scope.notificationFromSever.Message, $scope.notificationFromSever.Title); 
                     }
                 }
-                delete $scope.notificationFromSever; delete $scope.calcSession; delete $scope.soundPlay;
                 delete dataSession;
 			});  
     };
-    $scope.autoRefresh();
+    //$scope.autoRefresh();
     $scope.countDieInterval = 0;
     $scope.intervalPromise = $interval(function(){
         $scope.countDieInterval++;
@@ -135,21 +134,22 @@ angular.module('pduNewsApp')
     
     
  	//Determine status modal view information application
-	$scope.classHienThiBaiViet = "modal animated fadeOutRightBig"; 
-	$scope.getTrangThaiModal = function(){
-		if ($scope.classHienThiBaiViet === "modal animated fadeInRightBig")
-			$scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
-		else
-			$scope.classHienThiBaiViet = "modal animated fadeInRightBig";
-	};
+	$scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
+    $scope.getTrangThaiModal = function () {
+        if ($scope.classHienThiBaiViet == "modal animated fadeInRightBig"){
+            $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
+            $timeout(function () {
+                $scope.dismiss();
+            }, 300);
+        }
+        else
+            $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
+    };
     
     
     //Đóng bài viết modal
     $scope.huyData = function() {
-		$scope.getTrangThaiModal();
-		$timeout(function(){
-			$scope.dismiss();
-		}, 300);		
+		$scope.getTrangThaiModal();		
     }; 
     
     

@@ -99,7 +99,7 @@ angular.module('pduNewsApp')
             $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
             $timeout(function () {
                 angular.element('#caiDatKhiXemQldt').modal('hide');
-            }, 500);
+            }, 300);
         }
         else
             $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";

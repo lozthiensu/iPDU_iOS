@@ -28,8 +28,6 @@ angular.module('pduNewsApp')
     $scope.datapdu = [];
 
 
-
-
     //Determine status modal view thread
     $scope.classHienThiBaiViet = "modal animated fadeOutRightBig";
     $scope.getTrangThaiModal = function () {
@@ -49,7 +47,7 @@ angular.module('pduNewsApp')
             $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
             $timeout(function () {
                 angular.element('#caiDatKhiXemSave').modal('hide');
-            }, 500);
+            }, 300);
         }
         else
             $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";

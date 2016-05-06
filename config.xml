@@ -9,7 +9,6 @@
         </author>
         <content src="index.html" /> 
         <access origin="*" />
-
         <allow-intent href="http://*/*" />
         <allow-intent href="https://*/*" />
         <allow-intent href="tel:*" />
@@ -21,7 +20,8 @@
         <preference name="BackupWebStorage" value="none" />
         <preference name="EnableViewportScale" value="false" />
         <preference name="AutoHideSplashScreen" value="true" />
-        <preference name="SplashScreenDelay" value="3000" />
+        <preference name="SplashScreenDelay" value="2500" />
+        <preference name="FadeSplashScreenDuration" value="500"/>
         <platform name="ios">
             <icon height="29" src="www/iOSRes/29.png" width="29" />
             <icon height="40" src="www/iOSRes/40.png" width="40" />

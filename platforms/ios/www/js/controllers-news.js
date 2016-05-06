@@ -179,7 +179,7 @@ angular.module('pduNewsApp')
             $timeout(function () {
                 $scope.dismiss();
                 $scope.datapdu = [];
-            }, 500);
+            }, 300);
         }
         else
             $scope.classHienThiBaiViet = "modal animated fadeInRightBig";
@@ -190,7 +190,7 @@ angular.module('pduNewsApp')
             $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
             $timeout(function () {
                 angular.element('#caiDatKhiXemNews').modal('hide');
-            }, 500);
+            }, 300);
         }
         else
             $scope.classHienThiCaiDat = "modal-setting animated fadeInUpBig";

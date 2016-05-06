@@ -107,5 +107,6 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="2500" />
+    <preference name="FadeSplashScreenDuration" value="500" />
 </widget>
