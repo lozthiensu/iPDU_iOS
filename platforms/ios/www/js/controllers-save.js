@@ -36,6 +36,7 @@ angular.module('pduNewsApp')
             $timeout(function () {
                 $scope.dismiss();
                 $scope.datapdu = [];
+                angular.element('#caiDatKhiXemSave').modal('hide');
             }, 300);
         }
         else
@@ -153,7 +154,9 @@ angular.module('pduNewsApp')
     //Close modal view thread
     $scope.huyData = function () {
         $scope.getTrangThaiModal();
-        angular.element('#caiDatKhiXem').modal('hide');
+        if ($scope.classHienThiCaiDat == "modal-setting animated fadeInUpBig"){
+            $scope.classHienThiCaiDat = "modal-setting animated fadeOutDownBig";
+        }
     };
 
 

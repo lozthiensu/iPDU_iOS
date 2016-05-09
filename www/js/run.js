@@ -22,7 +22,6 @@ angular.module('pduNewsApp')
     $rootScope.dataSave = []; //Contain data thread read from SQLite
     $rootScope.saveLogin = []; //Contain login info 
     $rootScope.SavedSession = []; //Contain index tab
-    $rootScope.doSangMay = 0;
 
 
     //When device ready, do it
