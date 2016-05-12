@@ -50,13 +50,13 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
+        "cordova.plugin.Brightness": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "org.pbernasconi.progressindicator": {
-            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
-        },
-        "cordova.plugin.Brightness": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },

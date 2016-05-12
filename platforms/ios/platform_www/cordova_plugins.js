@@ -263,6 +263,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
+        "id": "cordova.plugin.Brightness.Brightness",
+        "pluginId": "cordova.plugin.Brightness",
+        "clobbers": [
+            "cordova.plugins.brightness"
+        ]
+    },
+    {
         "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
         "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
         "pluginId": "de.appplant.cordova.plugin.local-notification",
@@ -296,14 +304,6 @@ module.exports = [
         "clobbers": [
             "ProgressIndicator"
         ]
-    },
-    {
-        "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
-        "id": "cordova.plugin.Brightness.Brightness",
-        "pluginId": "cordova.plugin.Brightness",
-        "clobbers": [
-            "cordova.plugins.brightness"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -323,9 +323,9 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.1",
     "cordova-plugin-x-socialsharing": "5.0.12-dev",
     "cordova-sqlite-storage": "0.8.4-dev",
+    "cordova.plugin.Brightness": "0.1.1",
     "de.appplant.cordova.plugin.local-notification": "0.8.4",
-    "org.pbernasconi.progressindicator": "1.1.0",
-    "cordova.plugin.Brightness": "0.1.1"
+    "org.pbernasconi.progressindicator": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

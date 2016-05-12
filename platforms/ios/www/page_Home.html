@@ -1,5 +1,4 @@
 <div ng-controller="page_Home_Ctrl">
-    <div ng-http-loader template="loading.html"></div>
     <div ng-class="cssListThread">
         <div infinite-scroll='getDataFromSever()' infinite-scroll-distance='2' infinite-scroll-parent='true'>
             <div ng-repeat="itemHome in dataListHome track by itemHome.Id">

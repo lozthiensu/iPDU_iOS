@@ -52,15 +52,15 @@
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
     </feature>
+    <feature name="Brightness">
+        <param name="ios-package" value="Brightness" />
+    </feature>
     <feature name="LocalNotification">
         <param name="ios-package" onload="true" value="APPLocalNotification" />
         <param name="onload" value="true" />
     </feature>
     <feature name="ProgressIndicator">
         <param name="ios-package" value="ProgressIndicator" />
-    </feature>
-    <feature name="Brightness">
-        <param name="ios-package" value="Brightness" />
     </feature>
     <icon height="29" src="www/iOSRes/29.png" width="29" />
     <icon height="40" src="www/iOSRes/40.png" width="40" />

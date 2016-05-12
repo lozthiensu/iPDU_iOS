@@ -61,15 +61,15 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Brightness\"><param name=\"ios-package\" value=\"Brightness\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"LocalNotification\"><param name=\"ios-package\" onload=\"true\" value=\"APPLocalNotification\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"ProgressIndicator\"><param name=\"ios-package\" value=\"ProgressIndicator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Brightness\"><param name=\"ios-package\" value=\"Brightness\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -137,13 +137,13 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
+        "cordova.plugin.Brightness": {
+            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
+        },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         },
         "org.pbernasconi.progressindicator": {
-            "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
-        },
-        "cordova.plugin.Brightness": {
             "PACKAGE_NAME": "com.studiogamefree.dev.demoocr"
         }
     },
@@ -412,6 +412,14 @@
             ]
         },
         {
+            "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
+            "id": "cordova.plugin.Brightness.Brightness",
+            "pluginId": "cordova.plugin.Brightness",
+            "clobbers": [
+                "cordova.plugins.brightness"
+            ]
+        },
+        {
             "file": "plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js",
             "id": "de.appplant.cordova.plugin.local-notification.LocalNotification",
             "pluginId": "de.appplant.cordova.plugin.local-notification",
@@ -445,14 +453,6 @@
             "clobbers": [
                 "ProgressIndicator"
             ]
-        },
-        {
-            "file": "plugins/cordova.plugin.Brightness/www/brightness.js",
-            "id": "cordova.plugin.Brightness.Brightness",
-            "pluginId": "cordova.plugin.Brightness",
-            "clobbers": [
-                "cordova.plugins.brightness"
-            ]
         }
     ],
     "plugin_metadata": {
@@ -470,8 +470,8 @@
         "cordova-plugin-whitelist": "1.2.1",
         "cordova-plugin-x-socialsharing": "5.0.12-dev",
         "cordova-sqlite-storage": "0.8.4-dev",
+        "cordova.plugin.Brightness": "0.1.1",
         "de.appplant.cordova.plugin.local-notification": "0.8.4",
-        "org.pbernasconi.progressindicator": "1.1.0",
-        "cordova.plugin.Brightness": "0.1.1"
+        "org.pbernasconi.progressindicator": "1.1.0"
     }
 }
