@@ -319,6 +319,15 @@ span.menu4icontitle{
     width:100vw;
     height:20px;
 }
+/*Tieu de menu cach top*/
+.margin_theloai{
+    margin-right: -10px;
+}
+.cuontheloai{
+    overflow-y: scroll;
+    overflow-x: visible;
+	max-height: calc(100vh - 250px); 
+}
 
 
 /* Định dạng list menu */

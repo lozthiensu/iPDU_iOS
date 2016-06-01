@@ -1,5 +1,4 @@
 <div ng-controller="page_Saved_Ctrl">
-
     <div ng-class="cssListThread">
         <div ng-repeat="data in dataSave track by data.baiviet_id">
             <div ng-if="::data.baiviet_thumb != 'No'" class="list_ban_khach_repeat" data-target="#hienBaiSave" data-toggle="modal" ng-click="showById(data)" role="button">
@@ -12,7 +11,7 @@
                 </div>
             </div>
             <div ng-if="::data.baiviet_thumb == 'No'" class="list_ban_khach_repeat" data-target="#hienBaiSave" data-toggle="modal" ng-click="showById(data)" role="button">
-                <div class="catandDate">{{data.baiviet_img}}
+                <div class="catandDate">
                     <font size="2">{{::data.baiviet_date}}</font>
                 </div>
                 <div class="imgList">{{data.baiviet_title[0]}}</div>
